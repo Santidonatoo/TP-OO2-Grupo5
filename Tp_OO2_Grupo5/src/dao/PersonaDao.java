@@ -112,7 +112,7 @@ public class PersonaDao {
 		Persona objeto = null;
 		try {
 			iniciaOperacion();
-			String hql = "from Cliente c inner join fetch c.contacto where c.idCliente = :idCliente";
+			String hql = "from Persona c inner join fetch c.contacto where c.idPersona = :idPersona";
 			objeto = (Persona) session.createQuery(hql).setParameter("idPersona",idPersona).uniqueResult();
 		} finally {
 			session.close();
