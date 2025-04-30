@@ -1,8 +1,8 @@
 package datos;
 
 public class Servicio {
-	int idServicio;
-	String nombre;
+	private int idServicio;
+	private String nombre;
 	
 	public Servicio() {}
 	
