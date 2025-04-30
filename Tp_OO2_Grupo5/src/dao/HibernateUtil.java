@@ -1,5 +1,8 @@
 package dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -13,6 +16,21 @@ public class HibernateUtil {
 	public static SessionFactory getSessionFactory() {
 		try {
 			if (sessionFactory == null) {
+				String USERNAME = System.getenv("USERNAME");
+				String PASSWORD = System.getenv("PASSWORD");
+				String NOMBREBD = System.getenv("NOMBRE-BD");
+				
+				if(USERNAME == null || PASSWORD == null || NOMBREBD == null) {
+					throw new RuntimeException("Faltan variables de entorno: username, password o nombrebd");
+				}
+				
+				String url = "jdbc:mysql://localhost:3306/" + NOMBREBD + "?serverTimezone=GMT-3";
+				
+				Map<String, String> settingsOverride = new HashMap<>();
+                settingsOverride.put("hibernate.connection.username", USERNAME);
+                settingsOverride.put("hibernate.connection.password", PASSWORD);
+                settingsOverride.put("hibernate.connection.url", url);
+				
 				StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
 						.configure("hibernate.cfg.xml").build();
 				Metadata metaData = new MetadataSources(standardRegistry).getMetadataBuilder().build();
