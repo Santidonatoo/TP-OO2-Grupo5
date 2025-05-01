@@ -3,12 +3,12 @@ package datos;
 import java.time.LocalDate;
 
 public abstract class Persona {
-	int idPersona;
-	String nombre;
-	String apellido;
-	long dni;
-	LocalDate fechaDeNacimiento;
-	Contacto contacto;
+	protected int idPersona;
+	protected String nombre;
+	protected String apellido;
+	protected long dni;
+	protected LocalDate fechaDeNacimiento;
+	protected Contacto contacto;
 	
 	public Persona() {}
 	
