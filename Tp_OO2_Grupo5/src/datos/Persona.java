@@ -8,15 +8,17 @@ public abstract class Persona {
 	String apellido;
 	long dni;
 	LocalDate fechaDeNacimiento;
+	Contacto contacto;
 	
 	public Persona() {}
 	
-	public Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento) {
+	public Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.fechaDeNacimiento = fechaDeNacimiento;
+		this.contacto = contacto;
 	}
 
 	public int getIdPersona() {
@@ -58,11 +60,19 @@ public abstract class Persona {
 	public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
+	
+	public Contacto getContacto() {
+		return contacto;
+	}
+	
+	public void setContacto(Contacto contacto) {
+		this.contacto = contacto;
+	}
 
 	@Override
 	public String toString() {
 		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + "]";
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", contacto=" + contacto + "]";
 	}
 	
 }
