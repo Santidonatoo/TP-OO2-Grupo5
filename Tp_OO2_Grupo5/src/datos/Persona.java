@@ -3,20 +3,22 @@ package datos;
 import java.time.LocalDate;
 
 public abstract class Persona {
-	int idPersona;
-	String nombre;
-	String apellido;
-	long dni;
-	LocalDate fechaDeNacimiento;
+	protected int idPersona;
+	protected String nombre;
+	protected String apellido;
+	protected long dni;
+	protected LocalDate fechaDeNacimiento;
+	protected Contacto contacto;
 	
 	public Persona() {}
 	
-	public Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento) {
+	public Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.fechaDeNacimiento = fechaDeNacimiento;
+		this.contacto = contacto;
 	}
 
 	public int getIdPersona() {
@@ -58,11 +60,19 @@ public abstract class Persona {
 	public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
+	
+	public Contacto getContacto() {
+		return contacto;
+	}
+	
+	public void setContacto(Contacto contacto) {
+		this.contacto = contacto;
+	}
 
 	@Override
 	public String toString() {
 		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + "]";
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", contacto=" + contacto + "]";
 	}
 	
 }
