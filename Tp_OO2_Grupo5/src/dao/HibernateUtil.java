@@ -16,9 +16,15 @@ public class HibernateUtil {
 	public static SessionFactory getSessionFactory() {
 		try {
 			if (sessionFactory == null) {
+				/*
 				String USERNAME = System.getenv("USERNAME");
 				String PASSWORD = System.getenv("PASSWORD");
 				String NOMBREBD = System.getenv("NOMBRE-BD");
+				*/
+				
+				String USERNAME = "root";
+				String PASSWORD = "santi1903";
+				String NOMBREBD = "bd-turnos-tp-oo2";
 				
 				if(USERNAME == null || PASSWORD == null || NOMBREBD == null) {
 					throw new RuntimeException("Faltan variables de entorno: username, password o nombrebd");
