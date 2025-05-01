@@ -22,7 +22,7 @@ public class PersonaDao {
 	}
 	
 	private void iniciaOperacion() throws HibernateException {
-	session = HibernateUtil.getSessionFactory().openSession();
+		session = HibernateUtil.getSessionFactory().openSession();
 		tx = session.beginTransaction();
 	}
 	
