@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class Servicio {
-	private int idServicio;
+	private long idServicio;
 	private String nombre;
 	private Set<Empleado> empleados;
 	
@@ -16,10 +16,10 @@ public class Servicio {
 	}
 
 
-	public int getIdServicio() {
+	public long getIdServicio() {
 		return idServicio;
 	}
-	protected void setIdServicio(int idServicio) {
+	protected void setIdServicio(long idServicio) {
 		this.idServicio = idServicio;
 	}
 	public String getNombre() {

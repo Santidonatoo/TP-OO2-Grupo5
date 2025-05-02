@@ -3,16 +3,16 @@ package datos;
 import java.time.LocalDate;
 
 public abstract class Persona {
-	protected int idPersona;
+	protected long idPersona;
 	protected String nombre;
 	protected String apellido;
-	protected long dni;
+	protected int dni;
 	protected LocalDate fechaDeNacimiento;
 	public Contacto contacto;
 	
 	public Persona() {}
 	
-	public Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto) {
+	public Persona(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -21,11 +21,11 @@ public abstract class Persona {
 		this.contacto = contacto;
 	}
 
-	public int getIdPersona() {
+	public long getIdPersona() {
 		return idPersona;
 	}
 
-	protected void setIdPersona(int idPersona) {
+	protected void setIdPersona(long idPersona) {
 		this.idPersona = idPersona;
 	}
 
@@ -45,11 +45,11 @@ public abstract class Persona {
 		this.apellido = apellido;
 	}
 
-	public long getDni() {
+	public int getDni() {
 		return dni;
 	}
 
-	public void setDni(long dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 

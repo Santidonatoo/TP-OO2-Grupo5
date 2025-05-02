@@ -8,10 +8,8 @@ import datos.Servicio;
 
 public class ServicioABM {
 	ServicioDao dao = new ServicioDao();
+	
 	public Servicio traer(long idServicio) {
-		return dao.traer(idServicio);
-	}
-	public Servicio traer(int idServicio) {
 		return dao.traer(idServicio);
 	}
 	 
