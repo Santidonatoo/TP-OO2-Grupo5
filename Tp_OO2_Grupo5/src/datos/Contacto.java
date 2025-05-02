@@ -50,8 +50,7 @@ public class Contacto {
 
 	@Override
 	public String toString() {
-		return "Contacto [idContacto=" + idContacto + ", email=" + email + ", telefono=" + telefono + ", persona="
-				+ persona + "]";
+		return "Contacto [idContacto=" + idContacto + ", email=" + email + ", telefono=" + telefono + "]";
 	}
 	
 	
