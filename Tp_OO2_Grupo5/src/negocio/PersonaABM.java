@@ -26,10 +26,10 @@ public class PersonaABM {
 	}
 	
 	//Agrega Cliente
-	public int agregar(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto, LocalDate fechaIngreso)throws Exception{
+	public int agregar(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto, LocalDate fechaIngreso)throws Exception {
 		if(dao.traer(dni) != null) throw new Exception ("ERROR, ya existe un cliente con el dni: " + dni);
-		Cliente c = new Cliente(nombre, apellido, dni, fechaDeNacimiento, contacto, fechaIngreso);
-		return dao.agregar(c);
+		Persona p = new Cliente(nombre, apellido, dni, fechaDeNacimiento, contacto, fechaIngreso);
+		return dao.agregar(p);
 	}
 	
 }
