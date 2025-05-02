@@ -32,4 +32,12 @@ public class PersonaABM {
 		return dao.agregar(p);
 	}
 	
+	public Persona traer(long idPersona) {
+		return dao.traer(idPersona);
+	}
+	
+	public Persona traerPersonaYContacto(long idPersona) {
+		return dao.traerPersonaYContacto(idPersona);
+	}
+	
 }

@@ -2,8 +2,6 @@ package test;
 
 import java.time.LocalDate;
 
-import datos.Cliente;
-import negocio.ContactoABM;
 import negocio.PersonaABM;
 
 public class TestAgregarCliente {
