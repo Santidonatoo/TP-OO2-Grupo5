@@ -8,7 +8,7 @@ public abstract class Persona {
 	protected String apellido;
 	protected long dni;
 	protected LocalDate fechaDeNacimiento;
-	protected Contacto contacto;
+	public Contacto contacto;
 	
 	public Persona() {}
 	
