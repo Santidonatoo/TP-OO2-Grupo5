@@ -19,14 +19,14 @@ public class PersonaABM {
 	}
 	
 	//Agrega Empleado
-	public int agregar(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto, String puesto)throws Exception {
+	public int agregar(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto, String puesto)throws Exception {
 		if(dao.traer(dni) != null) throw new Exception ("ERROR, ya existe un empleado con el dni: " + dni);
 		Persona p = new Empleado(nombre, apellido, dni, fechaDeNacimiento, contacto, puesto);
 		return dao.agregar(p);
 	}
 	
 	//Agrega Cliente
-	public int agregar(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto, LocalDate fechaIngreso)throws Exception{
+	public int agregar(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto, LocalDate fechaIngreso)throws Exception{
 		if(dao.traer(dni) != null) throw new Exception ("ERROR, ya existe un cliente con el dni: " + dni);
 		Cliente c = new Cliente(nombre, apellido, dni, fechaDeNacimiento, contacto, fechaIngreso);
 		return dao.agregar(c);

@@ -11,7 +11,7 @@ public class Empleado extends Persona {
 	
 	public Empleado() {}
 
-	public Empleado(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto, String puesto) {
+	public Empleado(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto, String puesto) {
 		super(nombre, apellido, dni, fechaDeNacimiento, contacto);
 		this.puesto = puesto;
 	}
