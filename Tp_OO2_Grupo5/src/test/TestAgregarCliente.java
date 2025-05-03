@@ -17,6 +17,18 @@ public class TestAgregarCliente {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		try {
+			long cliente = abmPersona.agregar("Messi", "Lionel", 11111111, LocalDate.of(1987,6,24), null, LocalDate.now());
+			System.out.printf("Id cliente: %d", cliente);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		
+		
+		
 
 	}
 

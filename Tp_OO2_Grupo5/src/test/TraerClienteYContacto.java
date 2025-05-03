@@ -9,7 +9,9 @@ public class TraerClienteYContacto {
 		// TODO Auto-generated method stub
 		PersonaABM abmPersona = new PersonaABM();
 		long idCliente = 1;
+	
 		Persona p = abmPersona.traerPersonaYContacto(idCliente);
+		
 		System.out.println(p);
 	}
 
