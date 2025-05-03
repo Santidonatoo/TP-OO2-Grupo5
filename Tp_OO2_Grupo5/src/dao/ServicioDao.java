@@ -67,6 +67,19 @@ public class ServicioDao {
 	 	}
 	 	return objeto;
 	}
+	public Servicio traer(String nombre) {
+		Servicio objeto = null;
+	    try {
+	        iniciaOperacion();
+	        String hql = "FROM Servicio s WHERE s.nombre = :nombre";
+	        objeto = (Servicio) session.createQuery(hql)
+	                                   .setParameter("nombre", nombre)
+	                                   .uniqueResult();
+	    } finally {
+	        session.close();
+	    }
+	    return objeto;
+	}
 
 	public List<Servicio> traer() {
 		List<Servicio> lista = new ArrayList<Servicio>();
