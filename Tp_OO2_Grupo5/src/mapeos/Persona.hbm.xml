@@ -20,6 +20,10 @@
 		 <joined-subclass name="datos.Empleado" table="empleado">
 			 <key column="idEmpleado" />
 			 <property column="puesto" name="puesto" type="string" />
+			 <set table="servicioxempleado" name="servicios" outer-join="true">
+				<key column="idEmpleado"/>
+				<many-to-many column="idServicio" class="datos.Servicio"/>
+			</set> 
 		 </joined-subclass>
 	 </class>
  </hibernate-mapping>
