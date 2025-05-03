@@ -11,14 +11,14 @@ public class TestAgregarEmpleado {
 		PersonaABM abmPersona =new PersonaABM();
 
 		try {
-			long empleado = abmPersona.agregar("Echavarria", "Martin", 46267265, LocalDate.of(2005,1,20), null, "Barbero");
+			long empleado = abmPersona.agregar("Martin", "Echavarria", 46267265, LocalDate.of(2005,1,20), null, "Barbero");
 			System.out.printf("Id Empelado: %d", empleado);
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			long empleado = abmPersona.agregar("Donato", "Santino", 46638634, LocalDate.of(2005,5,11), null, "Colorista");
+			long empleado = abmPersona.agregar("Santino", "Donato", 46638634, LocalDate.of(2005,5,11), null, "Colorista");
 			System.out.printf("Id Empelado: %d", empleado);
 
 		}catch(Exception e) {
