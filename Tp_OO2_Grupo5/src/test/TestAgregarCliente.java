@@ -11,7 +11,7 @@ public class TestAgregarCliente {
 		PersonaABM abmPersona =new PersonaABM();
 		
 		try {
-			long ultimoIdCliente = abmPersona.agregar("Di Maria", "Angel", 30300300, LocalDate.of(1988,2,14), null, LocalDate.now());
+			long ultimoIdCliente = abmPersona.agregar("Angel", "Di Maria", 30300300, LocalDate.of(1988,2,14), null, LocalDate.now());
 			System.out.printf("Id cliente: %d", ultimoIdCliente);
 
 		}catch(Exception e) {
@@ -19,7 +19,7 @@ public class TestAgregarCliente {
 		}
 		
 		try {
-			long cliente = abmPersona.agregar("Messi", "Lionel", 11111111, LocalDate.of(1987,6,24), null, LocalDate.now());
+			long cliente = abmPersona.agregar("Lionel", "Messi", 11111111, LocalDate.of(1987,6,24), null, LocalDate.now());
 			System.out.printf("Id cliente: %d", cliente);
 
 		}catch(Exception e) {
