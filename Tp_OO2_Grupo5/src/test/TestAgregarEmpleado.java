@@ -24,6 +24,20 @@ public class TestAgregarEmpleado {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		try {
+			long empleado = abmPersona.agregar("Muriel", "Ramello", 46701858, LocalDate.of(2005,6,13), null, "Peluquera");
+			System.out.printf("Id Empelado: %d", empleado);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			long empleado = abmPersona.agregar("Jose", "Ruival", 43895400, LocalDate.of(2001,12,4), null, "Dueño");
+			System.out.printf("Id Empelado: %d", empleado);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

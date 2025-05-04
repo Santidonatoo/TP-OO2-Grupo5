@@ -37,8 +37,19 @@ public class Servicio {
 	public boolean equals(Servicio servicio){
 		return (idServicio==servicio.getIdServicio());
 	}
-
-	public boolean agregar(Empleado empleado){
+	public Empleado traerEmpleadoPorDni(int dni) {
+		Empleado encontrado = null;
+	    for (Empleado empleado : empleados) {
+	        if (empleado.getDni() == dni) {
+	            encontrado = empleado;
+	        }
+	    }
+	    return encontrado;
+	}
+	
+	public boolean agregar(Empleado empleado)throws Exception{
+		if(traerEmpleadoPorDni(empleado.getDni())!=null)throw new Exception
+		("ERROR el empleado con dni: "+ empleado.getDni() + " ya esta vinculado con este servicio") ;
 		boolean agregar=false;
 		if (! (empleados.contains(empleado))) {
 			agregar=empleados.add(empleado);
