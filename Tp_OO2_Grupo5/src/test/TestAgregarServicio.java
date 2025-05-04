@@ -29,7 +29,34 @@ public class TestAgregarServicio {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+		try {
+			long ultimoIdServicio = abmServicio.agregar("Decoloracion Mechas", null);
+			System.out.printf("Id Servicio: %d", ultimoIdServicio);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			long ultimoIdServicio = abmServicio.agregar("Alisado", null);
+			System.out.printf("Id Servicio: %d", ultimoIdServicio);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			long ultimoIdServicio = abmServicio.agregar("Perfilado de cejas", null);
+			System.out.printf("Id Servicio: %d", ultimoIdServicio);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			long ultimoIdServicio = abmServicio.agregar("Peinados para eventos", null);
+			System.out.printf("Id Servicio: %d", ultimoIdServicio);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

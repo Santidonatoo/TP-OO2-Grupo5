@@ -93,16 +93,4 @@ public class ServicioDao {
 		}
 		return lista;
 	}
-	public Servicio traerServicioYEmpleado(long idServicio) {
-		Servicio objeto = null;
-		try {
-			iniciaOperacion();
-			String hql = "from Servicio s where s.idServicio =:idServicio";
-			objeto = (Servicio) session.createQuery(hql).setParameter("idServicio", idServicio).uniqueResult();
-			Hibernate.initialize(objeto.getEmpleados());
-		} finally {
-			session.close();
-		}
-		return objeto;
-	}
 }
