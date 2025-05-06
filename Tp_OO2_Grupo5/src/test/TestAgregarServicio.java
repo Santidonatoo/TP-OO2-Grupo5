@@ -9,49 +9,49 @@ public class TestAgregarServicio {
 		ServicioABM abmServicio =new ServicioABM();
 		
 		try {
-			long ultimoIdServicio = abmServicio.agregar("Corte Estandar", null);
+			long ultimoIdServicio = abmServicio.agregar("Corte Estandar", true, null);
 			System.out.printf("Id Servicio: %d", ultimoIdServicio);
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			long ultimoIdServicio = abmServicio.agregar("Aseo de Barba", null);
+			long ultimoIdServicio = abmServicio.agregar("Aseo de Barba", true, null);
 			System.out.printf("Id Servicio: %d", ultimoIdServicio);
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			long ultimoIdServicio = abmServicio.agregar("Decoloracion Global", null);
+			long ultimoIdServicio = abmServicio.agregar("Decoloracion Global", true, null);
 			System.out.printf("Id Servicio: %d", ultimoIdServicio);
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			long ultimoIdServicio = abmServicio.agregar("Decoloracion Mechas", null);
+			long ultimoIdServicio = abmServicio.agregar("Decoloracion Mechas", true, null);
 			System.out.printf("Id Servicio: %d", ultimoIdServicio);
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			long ultimoIdServicio = abmServicio.agregar("Alisado", null);
+			long ultimoIdServicio = abmServicio.agregar("Alisado", true, null);
 			System.out.printf("Id Servicio: %d", ultimoIdServicio);
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			long ultimoIdServicio = abmServicio.agregar("Perfilado de cejas", null);
+			long ultimoIdServicio = abmServicio.agregar("Perfilado de cejas", true, null);
 			System.out.printf("Id Servicio: %d", ultimoIdServicio);
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			long ultimoIdServicio = abmServicio.agregar("Peinados para eventos", null);
+			long ultimoIdServicio = abmServicio.agregar("Peinados para eventos", true, null);
 			System.out.printf("Id Servicio: %d", ultimoIdServicio);
 
 		}catch(Exception e) {
