@@ -13,7 +13,7 @@ public class TestAgregarServiciosAEmpleados {
 		ServicioABM abmServicio = new ServicioABM();
 		
 		Empleado emp1 = (Empleado)abmPersona.traer(3L); //Martin 
-		Empleado emp2 = (Empleado)abmPersona.traer(4L); //Martin 
+		Empleado emp2 = (Empleado)abmPersona.traer(4L); //Santino 
 		Empleado emp3 = (Empleado)abmPersona.traer(5L); //Muriel 		
 		Empleado emp4 = (Empleado)abmPersona.traer(6L); //Jose 
 		
