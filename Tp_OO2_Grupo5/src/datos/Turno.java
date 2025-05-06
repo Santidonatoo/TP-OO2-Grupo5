@@ -5,14 +5,14 @@ import java.time.LocalTime;
 
 public class Turno {
 	
-	int idTurno;
-	LocalDate fecha;
-	LocalTime hora;
-	String estado;
-	String ubicacion;
-	Cliente cliente;
-	Empleado empleado;
-	Servicio servicio;
+	private long idTurno;
+	private LocalDate fecha;
+	private LocalTime hora;
+	private String estado;
+	private String ubicacion;
+	private Cliente cliente;
+	private Empleado empleado;
+	private Servicio servicio;
 	
 	public Turno() {}
 	
@@ -27,10 +27,10 @@ public class Turno {
 		this.servicio = servicio;
 	}
 	
-	public int getIdTurno() {
+	public long getIdTurno() {
 		return idTurno;
 	}
-	public void setIdTurno(int idTurno) {
+	public void setIdTurno(long idTurno) {
 		this.idTurno = idTurno;
 	}
 	public LocalDate getFecha() {
