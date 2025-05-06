@@ -7,7 +7,7 @@ public class Cliente extends Persona{
 	
 	public Cliente() {}
 	
-	public Cliente(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto, LocalDate fechaIngreso) {
+	public Cliente(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto, LocalDate fechaIngreso) {
 		super(nombre, apellido, dni, fechaDeNacimiento, contacto);
 		this.fechaIngreso = fechaIngreso;
 	}
@@ -22,7 +22,7 @@ public class Cliente extends Persona{
 
 	@Override
 	public String toString() {
-		return "Cliente [fechaIngreso=" + fechaIngreso + "]";
+		return super.toString() + "Cliente [fechaIngreso=" + fechaIngreso + "]";
 	}
 	
 }

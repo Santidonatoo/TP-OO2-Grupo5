@@ -13,8 +13,9 @@ public class ContactoABM {
 		return c;
 	}
 	
-	public int agregar(String email, String telefono, Persona persona){
-		// Lanzar excepción si el cliente ya tiene un contacto
+	public int agregar(String email, String telefono, Persona persona)throws Exception{
+		// Lanza excepción si la persona  ya tiene un contacto
+		if(persona.getContacto() != null) throw new Exception("ERROR, la persona ya tiene un contacto ");
 		Contacto c = new Contacto(email, telefono, persona);
 		return dao.agregar(c);
 	}

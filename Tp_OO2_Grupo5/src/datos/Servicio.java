@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class Servicio {
-	private int idServicio;
+	private long idServicio;
 	private String nombre;
 	private Set<Empleado> empleados;
 	
@@ -16,10 +16,10 @@ public class Servicio {
 	}
 
 
-	public int getIdServicio() {
+	public long getIdServicio() {
 		return idServicio;
 	}
-	protected void setIdServicio(int idServicio) {
+	protected void setIdServicio(long idServicio) {
 		this.idServicio = idServicio;
 	}
 	public String getNombre() {
@@ -37,8 +37,19 @@ public class Servicio {
 	public boolean equals(Servicio servicio){
 		return (idServicio==servicio.getIdServicio());
 	}
-
-	public boolean agregar(Empleado empleado){
+	public Empleado traerEmpleadoPorDni(int dni) {
+		Empleado encontrado = null;
+	    for (Empleado empleado : empleados) {
+	        if (empleado.getDni() == dni) {
+	            encontrado = empleado;
+	        }
+	    }
+	    return encontrado;
+	}
+	
+	public boolean agregar(Empleado empleado)throws Exception{
+		if(traerEmpleadoPorDni(empleado.getDni())!=null)throw new Exception
+		("ERROR el empleado con dni: "+ empleado.getDni() + " ya esta vinculado con este servicio") ;
 		boolean agregar=false;
 		if (! (empleados.contains(empleado))) {
 			agregar=empleados.add(empleado);

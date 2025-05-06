@@ -11,7 +11,7 @@ public class Empleado extends Persona {
 	
 	public Empleado() {}
 
-	public Empleado(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento, Contacto contacto, String puesto) {
+	public Empleado(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, Contacto contacto, String puesto) {
 		super(nombre, apellido, dni, fechaDeNacimiento, contacto);
 		this.puesto = puesto;
 	}
@@ -41,8 +41,19 @@ public class Empleado extends Persona {
 		Empleado other = (Empleado) obj;
 		return idPersona == other.idPersona;
 	}
+	
+	public Servicio traerServicioPorNombre(String nombre) {
+	    for (Servicio servicio : servicios) {
+	        if (servicio.getNombre().equalsIgnoreCase(nombre)) {
+	            return servicio;
+	        }
+	    }
+	    return null;
+	}
 
-	public boolean agregar(Servicio servicio){
+	public boolean agregar(Servicio servicio)throws Exception{
+		if(traerServicioPorNombre(servicio.getNombre())!=null)throw new Exception
+		("ERROR el servicio: "+ servicio.getNombre() + " ya esta vinculado con este empleado");
 		boolean agregar=false;
 		if (! (servicios.contains(servicio))) {
 			agregar=servicios.add(servicio);
