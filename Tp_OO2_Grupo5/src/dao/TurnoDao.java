@@ -1,5 +1,7 @@
 package dao;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,8 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import datos.Persona;
-import datos.Servicio;
+import datos.Cliente;
+import datos.Empleado;
 import datos.Turno;
 
 public class TurnoDao {
@@ -88,7 +90,7 @@ public class TurnoDao {
 		return lista;
 	}
 	
-	public List<Turno> traerXCliente(int idCliente) {
+	public List<Turno> traerXCliente(long idCliente) {
 	    List<Turno> lista = new ArrayList<>();
 	    try {
 	        iniciaOperacion();
@@ -101,7 +103,7 @@ public class TurnoDao {
 	    return lista;
 	}
 	
-	public List<Turno> traerXEmpleado(int idEmpleado) {
+	public List<Turno> traerXEmpleado(long idEmpleado) {
 	    List<Turno> lista = new ArrayList<>();
 	    try {
 	        iniciaOperacion();
@@ -112,5 +114,37 @@ public class TurnoDao {
 	        session.close();
 	    }
 	    return lista;
+	}
+	
+	public boolean existeTurnoEnRangoXEmpleado(Empleado empleado, LocalDate fecha, LocalTime hora) {
+		Long conteo = null;
+		try {
+	        iniciaOperacion();
+	        Query<Long> query = session.createQuery("SELECT COUNT(t) FROM Turno t WHERE t.empleado = :empleado AND t.fecha = :fecha AND t.hora BETWEEN :horaInicio AND :horaFin", Long.class);
+	        query.setParameter("empleado", empleado);
+	        query.setParameter("fecha", fecha);
+	        query.setParameter("horaInicio", hora.minusMinutes(59));
+	        query.setParameter("horaFin", hora.plusMinutes(59));
+	         conteo = query.getSingleResult();
+	    } finally {
+	        session.close();
+	    }
+	    return conteo > 0;
+	}
+	
+	public boolean existeTurnoEnRangoXCliente(Cliente cliente, LocalDate fecha, LocalTime hora) {
+		Long conteo = null;
+		try {
+	        iniciaOperacion();
+	        Query<Long> query = session.createQuery("SELECT COUNT(t) FROM Turno t WHERE t.cliente = :cliente AND t.fecha = :fecha AND t.hora BETWEEN :horaInicio AND :horaFin", Long.class);
+	        query.setParameter("cliente", cliente);
+	        query.setParameter("fecha", fecha);
+	        query.setParameter("horaInicio", hora.minusMinutes(59));
+	        query.setParameter("horaFin", hora.plusMinutes(59));
+	         conteo = query.getSingleResult();
+	    } finally {
+	        session.close();
+	    }
+	    return conteo > 0;
 	}
 }

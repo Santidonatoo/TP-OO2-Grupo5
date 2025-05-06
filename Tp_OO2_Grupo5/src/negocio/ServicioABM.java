@@ -16,9 +16,9 @@ public class ServicioABM {
 		return dao.traer(nombre);
 	}
 	 
-	public int agregar(String nombre, Set<Empleado> empleados)throws Exception{
+	public int agregar(String nombre, boolean requiereEmpleado, Set<Empleado> empleados)throws Exception{
 		if(traer(nombre)!= null)throw new Exception("Ya existe este servicio: " + nombre);
-		Servicio s = new Servicio(nombre, empleados);
+		Servicio s = new Servicio(nombre, requiereEmpleado, empleados);
 		return dao.agregar(s);
 	}
 	 
@@ -37,4 +37,5 @@ public class ServicioABM {
 	public List<Servicio> traer() {
 		return dao.traer();
 	}
+	
 }
