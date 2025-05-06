@@ -16,9 +16,9 @@ public class TestTraerServiciosYEmpleados {
 		System.out.println(e1);
 		System.out.println("Servicios:");
 
-		for(Servicio s1 : e1.getServicios())
-		System.out.println(s1);
-		
+		for(Servicio s1 : e1.getServicios()) {
+			System.out.println(s1);
+		}
 		ServicioABM abmServicio = new ServicioABM();
 		long idServicio = 6;
 		
@@ -26,9 +26,9 @@ public class TestTraerServiciosYEmpleados {
 		System.out.println("\n" + s2);
 		System.out.println("Empleados:");
 
-		for(Empleado e2 : s2.getEmpleados())
-		System.out.println(e2);
-
+		for(Empleado e2 : s2.getEmpleados()) {
+			System.out.println(e2);
+		}
 	}
 
 }

@@ -6,12 +6,14 @@ import java.util.Set;
 public class Servicio {
 	private long idServicio;
 	private String nombre;
+	private boolean requiereEmpleado;
 	private Set<Empleado> empleados;
 	
 	public Servicio() {}
 	
-	public Servicio(String nombre, Set<Empleado> empleados) {
+	public Servicio(String nombre, boolean requiereEmpleado, Set<Empleado> empleados) {
 		this.nombre = nombre;
+		this.requiereEmpleado = requiereEmpleado;
 		this.empleados = empleados;
 	}
 
@@ -27,6 +29,12 @@ public class Servicio {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public boolean isRequiereEmpleado() {
+		return requiereEmpleado;
+	}
+	public void setRequiereEmpleado(boolean requiereEmpleado) {
+		this.requiereEmpleado = requiereEmpleado;
 	}
 	public Set<Empleado> getEmpleados() {
 		return empleados;
@@ -67,11 +75,14 @@ public class Servicio {
 		eliminar=empleados.remove(borrar);
 		return eliminar;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Servicio [idServicio=" + idServicio + ", nombre=" + nombre + "]";
+		return "Servicio [idServicio=" + idServicio + ", nombre=" + nombre + ", requiereEmpleado=" + requiereEmpleado
+				+"]";
 	}
+	
+	
 	
 	
 }
