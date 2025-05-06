@@ -41,7 +41,8 @@ public class PersonaABM {
 	}
 	
 	//Modifica Clientes y Empleados
-	public void modificar(Persona p) {
+	public void modificar(Persona p)throws Exception {
+		if(traer(p.getDni()) == null)throw new Exception ("Error, esta queriendo modificar una persona que no existe");
 		dao.actualizar(p);
 	}
 	
