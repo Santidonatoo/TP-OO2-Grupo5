@@ -75,10 +75,4 @@ public class Turno {
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
-	
-	@Override
-	public String toString() {
-		return "Turno [idTurno=" + idTurno + ", fecha=" + fecha + ", hora=" + hora + ", estado=" + estado
-				+ ", ubicacion=" + ubicacion;
-	}
 }
