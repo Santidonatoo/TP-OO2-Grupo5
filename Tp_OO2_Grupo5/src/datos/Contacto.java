@@ -43,10 +43,14 @@ public class Contacto {
 		return persona;
 	}
 
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
 	@Override
 	public String toString() {
-		return "Contacto [idContacto=" + idContacto + ", email=" + email + ", telefono=" + telefono + ", persona="
-				+ persona + "]";
+		return "Contacto [idContacto=" + idContacto + ", email=" + email + ", telefono=" + telefono + "]";
 	}
 	
 	
