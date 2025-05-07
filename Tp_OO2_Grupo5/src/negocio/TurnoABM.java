@@ -41,4 +41,10 @@ public class TurnoABM {
 		dao.eliminar(t);
 		
 	}
+	
+	public Turno traer(long idTurno) {
+		return dao.traer(idTurno);
+	}
+	
+	
 }
