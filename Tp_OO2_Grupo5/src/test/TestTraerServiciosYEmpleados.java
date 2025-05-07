@@ -10,7 +10,7 @@ public class TestTraerServiciosYEmpleados {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PersonaABM abmPersona = new PersonaABM();
-		long idCliente = 3;
+		long idCliente = 4;
 	
 		Empleado e1 = (Empleado)abmPersona.traer(idCliente);
 		System.out.println(e1);
