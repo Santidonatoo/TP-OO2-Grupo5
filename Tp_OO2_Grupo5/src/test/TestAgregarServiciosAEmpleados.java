@@ -44,14 +44,22 @@ public class TestAgregarServiciosAEmpleados {
 			}catch(Exception e) {
 			e.printStackTrace();
 		}
-		abmServicio.modificar(ser3);
+		try {
+			abmServicio.modificar(ser3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try {
 			ser4.agregar(emp2);//Santino
 			ser4.agregar(emp4);//Jose		
 			}catch(Exception e) {
 			e.printStackTrace();
 		}
-		abmServicio.modificar(ser4);
+		try {
+			abmServicio.modificar(ser4);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 				//SELECT e.*, p.nombre FROM empleado e JOIN servicioxempleado es ON e.idEmpleado = es.idEmpleado 
 				//JOIN persona p ON e.idEmpleado = p.idPersona
 				//WHERE es.idServicio = 3;;

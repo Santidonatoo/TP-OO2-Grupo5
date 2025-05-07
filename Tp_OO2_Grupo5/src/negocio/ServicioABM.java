@@ -22,7 +22,8 @@ public class ServicioABM {
 		return dao.agregar(s);
 	}
 	 
-	public void modificar(Servicio s) {
+	public void modificar(Servicio s)throws Exception {
+		if(dao.traer(s.getIdServicio())== null)throw new Exception("El servicio no existe");
 		dao.actualizar(s);
 	}
 		
@@ -30,7 +31,6 @@ public class ServicioABM {
 
 		Servicio s = dao.traer(idServicio);
 		if(s == null)throw new Exception("El servicio no existe");
-		if(s.getEmpleados()!=null)throw new Exception("No se puede eliminar, el servicio tiene empleados enlazados");
 		dao.eliminar(s);
 	}
 	
