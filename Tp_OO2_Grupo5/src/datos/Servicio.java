@@ -64,7 +64,9 @@ public class Servicio {
 		}
 		return agregar;
 	}
-	public boolean eliminar(Empleado empleado){
+	public boolean eliminar(Empleado empleado)throws Exception{
+		if(traerEmpleadoPorDni(empleado.getDni())==null)throw new Exception
+		("ERROR el empleado no esta vinculado") ;
 		Empleado borrar=null;
 		boolean eliminar=false;
 		Iterator<Empleado> it = empleados.iterator();

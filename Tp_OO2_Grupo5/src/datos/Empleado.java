@@ -60,7 +60,9 @@ public class Empleado extends Persona {
 		}
 		return agregar;
 	}
-	public boolean eliminar(Servicio servicio){
+	public boolean eliminar(Servicio servicio)throws Exception{
+		if(traerServicioPorNombre(servicio.getNombre())==null)throw new Exception
+		("ERROR el servicio no esta vinculado");
 		Servicio borrar = null;
 		boolean eliminar = false;
 		Iterator<Servicio> it = servicios.iterator();

@@ -94,7 +94,7 @@ public class TurnoDao {
 	    List<Turno> lista = new ArrayList<>();
 	    try {
 	        iniciaOperacion();
-	        Query<Turno> query = session.createQuery("from Turno t where t.cliente.idCliente = :idCliente order by t.fecha asc, t.hora asc", Turno.class);
+	        Query<Turno> query = session.createQuery("from Turno t WHERE t.cliente.idCliente = :idCliente order by t.fecha asc, t.hora asc", Turno.class);
 	        query.setParameter("idCliente", idCliente);
 	        lista = query.getResultList();
 	    } finally {
@@ -107,8 +107,37 @@ public class TurnoDao {
 	    List<Turno> lista = new ArrayList<>();
 	    try {
 	        iniciaOperacion();
-	        Query<Turno> query = session.createQuery("from Turno t where t.empleado.idEmpleado = :idEmpleado order by t.fecha asc, t.hora asc", Turno.class);
+	        Query<Turno> query = session.createQuery("from Turno t WHERE t.empleado.idEmpleado = :idEmpleado order by t.fecha asc, t.hora asc", Turno.class);
 	        query.setParameter("idEmpleado", idEmpleado);
+	        lista = query.getResultList();
+	    } finally {
+	        session.close();
+	    }
+	    return lista;
+	}
+	
+	public List<Turno> traerXIntervaloDeHora(LocalDate fecha, LocalTime horaInicio, LocalTime horaFin){
+		List<Turno> lista = new ArrayList<>();
+		try {
+	        iniciaOperacion();
+	        Query<Turno> query = session.createQuery("from Turno t WHERE t.fecha = :fecha and t.hora BETWEEN :horaInicio AND :horaFin", Turno.class);
+	        query.setParameter("fecha", fecha);
+	        query.setParameter("horaInicio", horaInicio);
+	        query.setParameter("horaFin", horaFin);
+	        lista = query.getResultList();
+	    } finally {
+	        session.close();
+	    }
+	    return lista;
+	}
+	
+	public List<Turno> traerXIntervaloDeFecha(LocalDate fechaInicio, LocalDate fechaFin){
+		List<Turno> lista = new ArrayList<>();
+		try {
+	        iniciaOperacion();
+	        Query<Turno> query = session.createQuery("from Turno t WHERE t.fecha BETWEEN :fechaInicio and :fechaFin", Turno.class);
+	        query.setParameter("fechaInicio", fechaInicio);
+	        query.setParameter("fechaFin", fechaFin);
 	        lista = query.getResultList();
 	    } finally {
 	        session.close();
