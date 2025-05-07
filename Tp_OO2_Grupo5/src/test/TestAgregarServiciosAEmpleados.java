@@ -33,7 +33,12 @@ public class TestAgregarServiciosAEmpleados {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		abmPersona.modificar(emp1);
+		try {
+			abmPersona.modificar(emp1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 				//Por si quieren fijarse en la base de datos-->
 				//SELECT s.* FROM servicio s JOIN servicioxempleado es 
 				//ON s.idServicio = es.idServicio WHERE es.idEmpleado = 3;
@@ -71,7 +76,12 @@ public class TestAgregarServiciosAEmpleados {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		abmPersona.modificar(emp3);
+		try {
+			abmPersona.modificar(emp3);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 			emp4.agregar(ser1);
 			emp4.agregar(ser2);
@@ -81,7 +91,12 @@ public class TestAgregarServiciosAEmpleados {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		abmPersona.modificar(emp4);
+		try {
+			abmPersona.modificar(emp4);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 
