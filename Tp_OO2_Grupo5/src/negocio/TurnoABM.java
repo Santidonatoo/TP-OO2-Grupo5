@@ -2,6 +2,7 @@ package negocio;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import dao.TurnoDao;
 import datos.Cliente;
@@ -49,5 +50,12 @@ public class TurnoABM {
 		return dao.traer(idTurno);
 	}
 	
+	public List<Turno> traerXIntervaloDeHora(LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
+		return dao.traerXIntervaloDeHora(fecha, horaInicio, horaFin);
+	}
+	
+	public List<Turno> traerXIntervaloDeFecha(LocalDate fechaInicio, LocalDate fechaFin) {
+		return dao.traerXIntervaloDeFecha(fechaInicio, fechaFin);
+	}
 	
 }
