@@ -70,9 +70,8 @@ public abstract class Persona {
 	}
 
 	@Override
-    public String toString() {
-        return "idPersona: " + idPersona + " - " + nombre + " " + apellido + " - dni: " + dni
-                + " - fechaDeNacimiento:" + fechaDeNacimiento;
-    }
-	
+	public String toString() {
+		return "idPersona: " + idPersona + " - " + nombre + " " + apellido + " - dni: " + dni
+				+ " - fechaDeNacimiento:" + fechaDeNacimiento;
+	}
 }

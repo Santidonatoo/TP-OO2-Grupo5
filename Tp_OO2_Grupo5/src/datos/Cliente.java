@@ -21,7 +21,9 @@ public class Cliente extends Persona{
 	}
 
 	@Override
-    public String toString() {
-        return "Cliente | " +  super.toString() +  " - fechaIngreso:" + fechaIngreso + "\nContacto: " +super.getContacto();
-    }
+
+	public String toString() {
+		return "Cliente | " +  super.toString() +  " - fechaIngreso:" + fechaIngreso + "\nContacto: " +super.getContacto();
+	}
+	
 }

@@ -14,8 +14,7 @@ import datos.Turno;
 
 public class ClienteABM {
 	
-	PersonaDao dao = new PersonaDao();
-	EmpleadoDao daoEmpleado = new EmpleadoDao();
+	EmpleadoABM abmEmpleado = new EmpleadoABM();
 	TurnoABM abmTurno = new TurnoABM();
 	ServicioABM abmServicio = new ServicioABM();
 	PersonaABM abmPersona = new PersonaABM();
@@ -32,7 +31,6 @@ public class ClienteABM {
 	
 	//Cambia el estado del turno a confirmado
 	public void confirmarTurno(Turno turno)throws Exception {
-		//if(abmTurno.traer(turno.getIdTurno()) == null) throw new Exception("ERROR, el turno no existe");
 		turno.setEstado("Confirmado");
 		abmTurno.modificar(turno);
 	}
@@ -41,20 +39,18 @@ public class ClienteABM {
 		
 		if(abmServicio.traer(servicio.getIdServicio()) == null) throw new Exception("ERROR, el servicio no existe");
 		
-		//si la persona no esta cargada en la base de datos la agrega
-		if(abmPersona.traer(cliente.getDni()) == null) {
-			
-			dao.agregar(cliente); //hay que cambiarlo desp para sacar el dao de aca
-		}
-		
 		Empleado empleado = null;
 		if(servicio.isRequiereEmpleado() == true) {
 			
-			empleado = daoEmpleado.traerEmpleadoDisponible(fecha, hora, servicio);
+			empleado = abmEmpleado.traerEmpleadoDisponible(fecha, hora, servicio);
 			if(empleado == null)throw new Exception("Lo sentimos :(  No contamos con empleados disponibles en este momento");
-			
 		}
 		
+		//si la persona no esta cargada en la base de datos la agrega
+		if(abmPersona.traer(cliente.getDni()) == null) {
+			
+			abmPersona.agregar(cliente);
+		}
 		abmTurno.agregar(fecha, hora, "Pendiente", "Alsina 1261",cliente  , empleado, servicio);
 		
 		

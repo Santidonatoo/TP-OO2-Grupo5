@@ -39,6 +39,11 @@ public class PersonaABM {
 		Persona p = new Cliente(nombre, apellido, dni, fechaDeNacimiento, contacto, fechaIngreso);
 		return dao.agregar(p);
 	}
+	public int agregar(Cliente cliente)throws Exception {
+		if(traer(cliente.getDni()) != null) throw new Exception ("ERROR, ya existe un cliente con el dni: " + cliente.getDni());
+		return dao.agregar(cliente);
+	}
+	
 	
 	//Modifica Clientes y Empleados
 	public void modificar(Persona p)throws Exception {
