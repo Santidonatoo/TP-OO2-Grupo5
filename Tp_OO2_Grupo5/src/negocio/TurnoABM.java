@@ -69,6 +69,14 @@ public class TurnoABM {
 		return dao.traerXServicio(idServicio);
 	}
 	
+	public List<Turno> traerPorClienteEnFecha(Cliente cliente, LocalDate fecha){
+		return dao.traerTurnoXClienteEnFecha(cliente, fecha);
+	}
+	
+	public List<Turno> traerPorEmpleadoEnFecha(Empleado empleado, LocalDate fecha){
+		return dao.traerTurnoXEmpleadoEnFecha(empleado, fecha);
+	}
+	
 	public List<Turno> traerXIntervaloDeHora(LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
 		return dao.traerXIntervaloDeHora(fecha, horaInicio, horaFin);
 	}

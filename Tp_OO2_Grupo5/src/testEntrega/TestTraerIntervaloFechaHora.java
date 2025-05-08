@@ -14,7 +14,11 @@ public class TestTraerIntervaloFechaHora {
 		
 		System.out.println(abmTurno.traerXIntervaloDeHora(LocalDate.of(2025, 9, 24), LocalTime.of(17, 00), LocalTime.of(19, 00)));
 		
+		System.out.println(abmTurno.traerXIntervaloDeHora(LocalDate.of(2025, 9, 27), LocalTime.of(17, 00), LocalTime.of(19, 00)));
+		
 		System.out.println(abmTurno.traerXIntervaloDeFecha(LocalDate.of(2025, 9, 24), LocalDate.of(2025, 9, 27)));
+		
+		System.out.println(abmTurno.traerXIntervaloDeFecha(LocalDate.of(2025, 9, 23), LocalDate.of(2025, 9, 25)));
 
 	}
 
