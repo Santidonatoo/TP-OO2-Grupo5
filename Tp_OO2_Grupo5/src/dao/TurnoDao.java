@@ -73,7 +73,7 @@ public class TurnoDao {
 	 		Query<Turno> query = session.createQuery(
 	 			    "select t from Turno t " +
 	 			    "join fetch t.servicio " +
-	 			    "join fetch t.empleado " +
+	 			    "left join fetch t.empleado " +
 	 			    "join fetch t.cliente " +
 	 			    "where t.id = :id", Turno.class);
 	 			query.setParameter("id", idTurno);
@@ -92,7 +92,7 @@ public class TurnoDao {
 			Query<Turno> query = session.createQuery(
 					"from Turno t " +
 	 			    "join fetch t.servicio " +
-	 			    "join fetch t.empleado " +
+	 			    "left join fetch t.empleado " +
 	 			    "join fetch t.cliente " +
 					"order by t.idTurno asc", Turno.class);
 			lista = query.getResultList();
@@ -106,7 +106,11 @@ public class TurnoDao {
 	    List<Turno> lista = new ArrayList<>();
 	    try {
 	        iniciaOperacion();
-	        Query<Turno> query = session.createQuery("from Turno t WHERE t.cliente.idCliente = :idCliente order by t.fecha asc, t.hora asc", Turno.class);
+	        Query<Turno> query = session.createQuery("from Turno t " +
+	        		"join fetch t.servicio " +
+	 			    "left join fetch t.empleado " +
+	 			    "join fetch t.cliente " +
+	        		"WHERE t.cliente.idPersona = :idCliente order by t.fecha asc, t.hora asc", Turno.class);
 	        query.setParameter("idCliente", idCliente);
 	        lista = query.getResultList();
 	    } finally {
@@ -119,8 +123,29 @@ public class TurnoDao {
 	    List<Turno> lista = new ArrayList<>();
 	    try {
 	        iniciaOperacion();
-	        Query<Turno> query = session.createQuery("from Turno t WHERE t.empleado.idEmpleado = :idEmpleado order by t.fecha asc, t.hora asc", Turno.class);
+	        Query<Turno> query = session.createQuery("from Turno t " +
+	        		"join fetch t.servicio " +
+	 			    "left join fetch t.empleado " +
+	 			    "join fetch t.cliente " +
+	        		"WHERE t.empleado.idPersona = :idEmpleado order by t.fecha asc, t.hora asc", Turno.class);
 	        query.setParameter("idEmpleado", idEmpleado);
+	        lista = query.getResultList();
+	    } finally {
+	        session.close();
+	    }
+	    return lista;
+	}
+	
+	public List<Turno> traerXServicio(long idServicio) {
+	    List<Turno> lista = new ArrayList<>();
+	    try {
+	        iniciaOperacion();
+	        Query<Turno> query = session.createQuery("from Turno t " +
+	        		"join fetch t.servicio " +
+	 			    "left join fetch t.empleado " +
+	 			    "join fetch t.cliente " +
+	        		"WHERE t.servicio.idServicio = :idServicio order by t.fecha asc, t.hora asc", Turno.class);
+	        query.setParameter("idServicio", idServicio);
 	        lista = query.getResultList();
 	    } finally {
 	        session.close();
@@ -134,7 +159,7 @@ public class TurnoDao {
 	        iniciaOperacion();
 	        Query<Turno> query = session.createQuery("from Turno t " 
 	        		+ "join fetch t.servicio "
-	        		+ "join fetch t.empleado "
+	        		+ "left join fetch t.empleado "
 	        		+ "join fetch t.cliente " 
 	        		+ "WHERE t.fecha = :fecha and t.hora BETWEEN :horaInicio AND :horaFin"
 	        		, Turno.class);
@@ -154,7 +179,7 @@ public class TurnoDao {
 	        iniciaOperacion();
 	        Query<Turno> query = session.createQuery("from Turno t "
 	        		+ "join fetch t.servicio "
-	        		+ "join fetch t.empleado "
+	        		+ "left join fetch t.empleado "
 	        		+ "join fetch t.cliente "
 	        		+ "WHERE t.fecha BETWEEN :fechaInicio and :fechaFin", Turno.class);
 	        query.setParameter("fechaInicio", fechaInicio);

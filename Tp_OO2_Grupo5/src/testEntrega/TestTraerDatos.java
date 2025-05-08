@@ -52,8 +52,6 @@ public class TestTraerDatos {
 		for(Empleado e2 : s2.getEmpleados()) {
 			System.out.println(e2);
 		}
-		
-		System.out.println(abmTurno.traer(3L));
 
 	}
 
