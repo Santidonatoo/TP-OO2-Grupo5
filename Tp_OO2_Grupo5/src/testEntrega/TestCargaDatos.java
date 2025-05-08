@@ -58,6 +58,12 @@ public class TestCargaDatos {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		try {
+			long empleado = abmPersona.agregar("Pepe", "Pepini", 22333444, LocalDate.of(2000,10,2), null, "Peluquero");
+			System.out.printf("Id Empleado: %d", empleado);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		//--- Agregando Contactos ---
 		try {

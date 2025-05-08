@@ -10,7 +10,7 @@ public class TraerClienteYContacto {
 		PersonaABM abmPersona = new PersonaABM();
 		long idCliente = 1;
 	
-		Persona p = abmPersona.traerPersonaYContacto(idCliente);
+		Persona p = abmPersona.traer(idCliente);
 		
 		System.out.println(p);
 	}
