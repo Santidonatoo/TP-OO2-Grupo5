@@ -89,7 +89,12 @@ public class TurnoDao {
 		List<Turno> lista = new ArrayList<Turno>();
 		try {
 			iniciaOperacion();
-			Query<Turno> query = session.createQuery("from Turno t order by t.idTurno asc", Turno.class);
+			Query<Turno> query = session.createQuery(
+					"from Turno t " +
+	 			    "join fetch t.servicio " +
+	 			    "join fetch t.empleado " +
+	 			    "join fetch t.cliente " +
+					"order by t.idTurno asc", Turno.class);
 			lista = query.getResultList();
 		} finally {
 			session.close();

@@ -98,7 +98,7 @@ public class PersonaDao {
 		List<Persona> lista = new ArrayList<Persona>();
 		try {
 			iniciaOperacion();
-			Query<Persona> query = session.createQuery("from Persona p order by p.apellido asc, p.nombre asc", Persona.class);
+			Query<Persona> query = session.createQuery("from Persona p order by p.idPersona asc", Persona.class);
 			lista = query.getResultList();
 		} finally {
 			session.close();
