@@ -11,7 +11,7 @@
 		 <property name="ubicacion" column="ubicacion" type="string"/>
 		 
 		 <many-to-one name="cliente" class="datos.Cliente" column="idCliente" not-null="true"/>
-		 <many-to-one name="empleado" class="datos.Empleado" column="idEmpleado" not-null="true"/>
+		 <many-to-one name="empleado" class="datos.Empleado" column="idEmpleado" not-null="false"/>
 		 <many-to-one name="servicio" class="datos.Servicio" column="idServicio" not-null="true"/>
 		 
 	 </class>

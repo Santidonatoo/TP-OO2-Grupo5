@@ -70,7 +70,14 @@ public class TurnoDao {
 		Turno objeto = null;
 	 	try {
 	 		iniciaOperacion();
-	 		objeto = (Turno) session.get(Turno.class, idTurno);
+	 		Query<Turno> query = session.createQuery(
+	 			    "select t from Turno t " +
+	 			    "join fetch t.servicio " +
+	 			    "join fetch t.empleado " +
+	 			    "join fetch t.cliente " +
+	 			    "where t.id = :id", Turno.class);
+	 			query.setParameter("id", idTurno);
+	 			objeto = query.uniqueResult();
 	 	} finally {
 	 		session.close();
 	 	}
@@ -82,7 +89,12 @@ public class TurnoDao {
 		List<Turno> lista = new ArrayList<Turno>();
 		try {
 			iniciaOperacion();
-			Query<Turno> query = session.createQuery("from Turno t order by t.idTurno asc", Turno.class);
+			Query<Turno> query = session.createQuery(
+					"from Turno t " +
+	 			    "join fetch t.servicio " +
+	 			    "join fetch t.empleado " +
+	 			    "join fetch t.cliente " +
+					"order by t.idTurno asc", Turno.class);
 			lista = query.getResultList();
 		} finally {
 			session.close();
@@ -176,10 +188,5 @@ public class TurnoDao {
 	    }
 	    return conteo > 0;
 	}
-	
-	
-	
-	
-	
 	
 }

@@ -86,7 +86,7 @@ public class ServicioDao {
 		try {
 			iniciaOperacion();
 			Query<Servicio> query = session.createQuery
-			("from Empleado e join Persona p on e.idEmpleado = p.idPersona order by p.apellido asc, p.nombre asc", Servicio.class);
+			("SELECT s from Servicio s", Servicio.class);
 					 lista = query.getResultList();
 		} finally {
 			session.close();

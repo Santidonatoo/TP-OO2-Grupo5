@@ -1,20 +1,18 @@
-package test;
+package testEntrega;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 import datos.Cliente;
-import datos.Persona;
 import datos.Servicio;
 import negocio.ClienteABM;
 import negocio.PersonaABM;
 import negocio.ServicioABM;
 
-public class TestSolicitarTurno {
+public class TestSolicitarTurnos {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		PersonaABM abmPersona = new PersonaABM();
 		ClienteABM abmCliente = new ClienteABM();
 		ServicioABM abmServicio = new ServicioABM();
@@ -25,35 +23,43 @@ public class TestSolicitarTurno {
 		Cliente cliente4 = new Cliente("Rodrigo", "De Paul", 38254019, LocalDate.of(1994, 5, 24),null, LocalDate.now());
 
 		Servicio servicio1 =  abmServicio.traer(6L);
-		
+		Servicio servicio2 =  abmServicio.traer(8L); //Servicio que no requiere empleados
+		Servicio servicio3 =  abmServicio.traer(2L);
+
 		try {
 			abmCliente.solicitarTurno(LocalDate.of(2025, 9, 24), LocalTime.of(17, 00), servicio1, cliente1);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		try {
 			abmCliente.solicitarTurno(LocalDate.of(2025, 9, 24), LocalTime.of(17, 00), servicio1, cliente2);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		try {
 			abmCliente.solicitarTurno(LocalDate.of(2025, 9, 24), LocalTime.of(17, 00), servicio1, cliente3);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("Testeando la excepcion cuando un servicio se queda sin empleados disponibles");
 		try {
 			abmCliente.solicitarTurno(LocalDate.of(2025, 9, 24), LocalTime.of(17, 00), servicio1, cliente4);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		try {
 			abmCliente.solicitarTurno(LocalDate.of(2025, 9, 24), LocalTime.of(18,00), servicio1, cliente4);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			abmCliente.solicitarTurno(LocalDate.of(2025, 9, 27), LocalTime.of(18,00), servicio2, cliente3);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

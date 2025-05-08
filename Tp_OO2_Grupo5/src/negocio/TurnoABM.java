@@ -16,7 +16,9 @@ public class TurnoABM {
 	
 	public int agregar(LocalDate fecha, LocalTime hora, String estado, String ubicacion, Cliente cliente, Empleado empleado, Servicio servicio) throws Exception {
 		
-		if(dao.existeTurnoEnRangoXEmpleado(empleado, fecha, hora)) throw new Exception("ERROR, el empleado ya tiene ocupado este horario!");
+		if(empleado != null) {
+			if(dao.existeTurnoEnRangoXEmpleado(empleado, fecha, hora)) throw new Exception("ERROR, el empleado ya tiene ocupado este horario!");
+		}
 		
 		if(dao.existeTurnoEnRangoXCliente(cliente, fecha, hora)) throw new Exception("ERROR, usted ya tiene un turno en este horario!");
 		
@@ -29,8 +31,9 @@ public class TurnoABM {
 		if(turno == null) throw new Exception("ERROR, el turno que desea modificar no existe!");
 		
 		if(!turno.getFecha().equals(t.getFecha()) || !turno.getHora().equals(t.getHora())) {
-			if(dao.existeTurnoEnRangoXEmpleado(t.getEmpleado(), t.getFecha(), t.getHora())) throw new Exception("ERROR, el empleado ya tiene ocupado este horario!");
-			
+			if(t.getEmpleado() != null) {
+				if(dao.existeTurnoEnRangoXEmpleado(t.getEmpleado(), t.getFecha(), t.getHora())) throw new Exception("ERROR, el empleado ya tiene ocupado este horario!");	
+			}
 			if(dao.existeTurnoEnRangoXCliente(t.getCliente(), t.getFecha(), t.getHora())) throw new Exception("ERROR, usted ya tiene un turno en este horario!");
 			
 		}
@@ -48,6 +51,10 @@ public class TurnoABM {
 	
 	public Turno traer(long idTurno) {
 		return dao.traer(idTurno);
+	}
+	
+	public List<Turno> traer() {
+		return dao.traer();
 	}
 	
 	public List<Turno> traerXIntervaloDeHora(LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {

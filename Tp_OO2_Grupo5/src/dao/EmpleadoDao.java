@@ -2,6 +2,7 @@ package dao;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
@@ -55,8 +56,10 @@ public class EmpleadoDao {
             query.setParameter("servicio", servicio.getIdServicio());
 
             query.setMaxResults(1);
-            empleado = query.getSingleResult();
-
+            List<Empleado> resultados = query.getResultList();
+            if (!resultados.isEmpty()) {
+                empleado = resultados.get(0);
+            }
         } finally {
             session.close();
         }

@@ -84,11 +84,7 @@ public class Servicio {
 	
 
 	@Override
-    public String toString() {
-        return "Servicio | idServicio: " + idServicio + " - " + nombre + " - requiereEmpleado:" + requiereEmpleado;
-    }
-	
-	
-	
-	
+	public String toString() {
+		return "Servicio | idServicio: " + idServicio + " - " + nombre + " - requiereEmpleado:" + requiereEmpleado;
+	}
 }

@@ -1,6 +1,7 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import dao.PersonaDao;
 import datos.Cliente;
@@ -39,6 +40,11 @@ public class PersonaABM {
 		Persona p = new Cliente(nombre, apellido, dni, fechaDeNacimiento, contacto, fechaIngreso);
 		return dao.agregar(p);
 	}
+	public int agregar(Cliente cliente)throws Exception {
+		if(traer(cliente.getDni()) != null) throw new Exception ("ERROR, ya existe un cliente con el dni: " + cliente.getDni());
+		return dao.agregar(cliente);
+	}
+	
 	
 	//Modifica Clientes y Empleados
 	public void modificar(Persona p)throws Exception {
@@ -51,6 +57,10 @@ public class PersonaABM {
 		Persona p = traer(idPersona);
 		if(p == null)throw new Exception("ERROR, la persona con id " + idPersona +" que quiere eliminar no existe");
 		dao.eliminar(p);
+	}
+	
+	public List<Persona> traer(){
+		return dao.traer();
 	}
 	
 	public Persona traerPersonaYContacto(long idPersona) {
