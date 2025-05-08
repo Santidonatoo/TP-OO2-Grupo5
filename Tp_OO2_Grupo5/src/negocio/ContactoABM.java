@@ -20,12 +20,14 @@ public class ContactoABM {
 		return dao.agregar(c);
 	}
 	
-	public void modificar(Contacto c) {
+	public void modificar(Contacto c)throws Exception {
+		if(dao.traer(c.getIdContacto()) == null)throw new Exception("ERROR, el contacto no existe");	
 		dao.actualizar(c);
 	}
 	
-	public void eliminar(long idContacto) {
+	public void eliminar(long idContacto)throws Exception {
 		Contacto c = dao.traer(idContacto);
+		if(c == null)throw new Exception("ERROR, el contacto no existe");
 		dao.eliminar(c);
 	}
 
