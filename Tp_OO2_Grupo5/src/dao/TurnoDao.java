@@ -191,6 +191,42 @@ public class TurnoDao {
 	    return lista;
 	}
 	
+	public List<Turno> traerTurnoXClienteEnFecha(Cliente cliente, LocalDate fecha){
+		List<Turno> lista = new ArrayList<>();
+			try {
+        iniciaOperacion();
+        Query<Turno> query = session.createQuery("from Turno t "
+        		+ "join fetch t.servicio "
+        		+ "left join fetch t.empleado "
+        		+ "join fetch t.cliente "
+        		+ "WHERE t.fecha = :fecha AND t.cliente = :cliente", Turno.class);
+        		query.setParameter("cliente", cliente);
+        		query.setParameter("fecha", fecha);
+        		lista = query.getResultList();
+			} finally {
+				session.close();
+			}
+		return lista;
+	}
+	
+	public List<Turno> traerTurnoXEmpleadoEnFecha(Empleado empleado, LocalDate fecha){
+		List<Turno> lista = new ArrayList<>();
+			try {
+        iniciaOperacion();
+        Query<Turno> query = session.createQuery("from Turno t "
+        		+ "join fetch t.servicio "
+        		+ "left join fetch t.empleado "
+        		+ "join fetch t.cliente "
+        		+ "WHERE t.fecha = :fecha AND t.empleado = :empleado", Turno.class);
+        		query.setParameter("empleado", empleado);
+        		query.setParameter("fecha", fecha);
+        		lista = query.getResultList();
+			} finally {
+				session.close();
+			}
+		return lista;
+	}
+	
 	public boolean existeTurnoEnRangoXEmpleado(Empleado empleado, LocalDate fecha, LocalTime hora) {
 		Long conteo = null;
 		try {
