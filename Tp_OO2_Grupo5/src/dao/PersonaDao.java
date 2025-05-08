@@ -106,19 +106,5 @@ public class PersonaDao {
 		return lista;
 	}
 	
-	//metodo que se agrega con la relacion de persona-contacto
-	public Persona traerPersonaYContacto(long idPersona) throws HibernateException{
-		
-		Persona objeto = null;
-		try {
-			iniciaOperacion();
-			String hql = "from Persona c inner join fetch c.contacto where c.idPersona = :idPersona";
-			objeto = (Persona) session.createQuery(hql).setParameter("idPersona",idPersona).uniqueResult();
-		} finally {
-			session.close();
-		}
-		return objeto;
-	}
-	
 	
 }
