@@ -77,7 +77,7 @@ public class Turno {
 	}
 	
 	
-	
+	@Override
 	public String toString() {
 		if (empleado != null) {
 			return "Turno | idTurno: " + idTurno + " - fecha: " + fecha + " - hora: " + hora + " - estado: " + estado
