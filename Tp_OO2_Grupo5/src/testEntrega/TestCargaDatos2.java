@@ -17,6 +17,8 @@ public class TestCargaDatos2 {
 		Empleado emp2 = (Empleado)abmPersona.traer(4L); //Santino 
 		Empleado emp3 = (Empleado)abmPersona.traer(5L); //Muriel 		
 		Empleado emp4 = (Empleado)abmPersona.traer(6L); //Jose 
+		Empleado emp5 = (Empleado)abmPersona.traer(7L); //Pepe Pepini
+
 		
 		Servicio ser1 =abmServicio.traer(1L);//Corte Estandar
 		Servicio ser2 =abmServicio.traer(2L);//Aseo de Barba
@@ -42,7 +44,8 @@ public class TestCargaDatos2 {
 				
 		try {
 			ser3.agregar(emp2);//Santino
-			ser3.agregar(emp4);//Jose		
+			ser3.agregar(emp4);//Jose	
+			ser3.agregar(emp5);//Pepe
 			}catch(Exception e) {
 			e.printStackTrace();
 		}

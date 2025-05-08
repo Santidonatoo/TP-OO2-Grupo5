@@ -63,8 +63,4 @@ public class PersonaABM {
 		return dao.traer();
 	}
 	
-	public Persona traerPersonaYContacto(long idPersona) {
-		return dao.traerPersonaYContacto(idPersona);
-	}
-	
 }

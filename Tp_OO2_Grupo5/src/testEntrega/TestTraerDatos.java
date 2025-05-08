@@ -42,8 +42,8 @@ public class TestTraerDatos {
 			System.out.println(s1);
 		}
 		
-		System.out.println("\n--- Traemos los empleados asignados en el servicio con id = 6 ---");
-		long idServicio = 6;
+		System.out.println("\n--- Traemos los empleados asignados en el servicio con id = 3 ---");
+		long idServicio = 3;
 		
 		Servicio s2 = abmServicio.traer(idServicio);
 		System.out.println(s2);
