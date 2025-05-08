@@ -55,6 +55,8 @@ public class Servicio {
 	    return encontrado;
 	}
 	
+	
+	
 	public boolean agregar(Empleado empleado)throws Exception{
 		if(traerEmpleadoPorDni(empleado.getDni())!=null)throw new Exception
 		("ERROR el empleado con dni: "+ empleado.getDni() + " ya esta vinculado con este servicio") ;
@@ -77,10 +79,12 @@ public class Servicio {
 		eliminar=empleados.remove(borrar);
 		return eliminar;
 	}
+	
+
+	
 
 	@Override
 	public String toString() {
 		return "Servicio | idServicio: " + idServicio + " - " + nombre + " - requiereEmpleado:" + requiereEmpleado;
 	}
-	
 }
