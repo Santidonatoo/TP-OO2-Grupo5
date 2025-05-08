@@ -1,6 +1,7 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import dao.PersonaDao;
 import datos.Cliente;
@@ -56,6 +57,10 @@ public class PersonaABM {
 		Persona p = traer(idPersona);
 		if(p == null)throw new Exception("ERROR, la persona con id " + idPersona +" que quiere eliminar no existe");
 		dao.eliminar(p);
+	}
+	
+	public List<Persona> traer(){
+		return dao.traer();
 	}
 	
 	public Persona traerPersonaYContacto(long idPersona) {
