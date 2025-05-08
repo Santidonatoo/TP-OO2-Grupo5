@@ -53,8 +53,5 @@ public class Contacto {
 		return "idContacto | " + idContacto + " - email:" + email + " - telefono: " + telefono;
 	}
 	
-	
-	
-	
-	
+
 }

@@ -74,5 +74,4 @@ public abstract class Persona {
 		return "idPersona: " + idPersona + " - " + nombre + " " + apellido + " - dni: " + dni
 				+ " - fechaDeNacimiento:" + fechaDeNacimiento;
 	}
-	
 }

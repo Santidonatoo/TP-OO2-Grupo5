@@ -79,5 +79,4 @@ public class Empleado extends Persona {
 		return "Empleado | " + super.toString() + " - Puesto: " + puesto + "\nContacto: " + super.getContacto();
 	}
 
-	
 }

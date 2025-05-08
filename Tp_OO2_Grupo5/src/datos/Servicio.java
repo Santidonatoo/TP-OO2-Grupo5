@@ -83,5 +83,4 @@ public class Servicio {
 		return "Servicio | idServicio: " + idServicio + " - " + nombre + " - requiereEmpleado:" + requiereEmpleado;
 	}
 	
-	
 }
