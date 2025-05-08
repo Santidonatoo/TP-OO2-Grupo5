@@ -80,11 +80,8 @@ public class Servicio {
 
 	@Override
 	public String toString() {
-		return "Servicio [idServicio=" + idServicio + ", nombre=" + nombre + ", requiereEmpleado=" + requiereEmpleado
-				+"]";
+		return "Servicio | idServicio: " + idServicio + " - " + nombre + " - requiereEmpleado:" + requiereEmpleado;
 	}
-	
-	
 	
 	
 }
