@@ -132,7 +132,12 @@ public class TurnoDao {
 		List<Turno> lista = new ArrayList<>();
 		try {
 	        iniciaOperacion();
-	        Query<Turno> query = session.createQuery("from Turno t WHERE t.fecha = :fecha and t.hora BETWEEN :horaInicio AND :horaFin", Turno.class);
+	        Query<Turno> query = session.createQuery("from Turno t " 
+	        		+ "join fetch t.servicio "
+	        		+ "join fetch t.empleado "
+	        		+ "join fetch t.cliente " 
+	        		+ "WHERE t.fecha = :fecha and t.hora BETWEEN :horaInicio AND :horaFin"
+	        		, Turno.class);
 	        query.setParameter("fecha", fecha);
 	        query.setParameter("horaInicio", horaInicio);
 	        query.setParameter("horaFin", horaFin);
@@ -147,7 +152,11 @@ public class TurnoDao {
 		List<Turno> lista = new ArrayList<>();
 		try {
 	        iniciaOperacion();
-	        Query<Turno> query = session.createQuery("from Turno t WHERE t.fecha BETWEEN :fechaInicio and :fechaFin", Turno.class);
+	        Query<Turno> query = session.createQuery("from Turno t "
+	        		+ "join fetch t.servicio "
+	        		+ "join fetch t.empleado "
+	        		+ "join fetch t.cliente "
+	        		+ "WHERE t.fecha BETWEEN :fechaInicio and :fechaFin", Turno.class);
 	        query.setParameter("fechaInicio", fechaInicio);
 	        query.setParameter("fechaFin", fechaFin);
 	        lista = query.getResultList();
