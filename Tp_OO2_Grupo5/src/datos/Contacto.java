@@ -49,10 +49,9 @@ public class Contacto {
 	}
 
 	@Override
-	public String toString() {
-		return "Contacto [idContacto=" + idContacto + ", email=" + email + ", telefono=" + telefono + "]";
-	}
-	
+    public String toString() {
+        return "idContacto | " + idContacto + " - email:" + email + " - telefono: " + telefono;
+    }
 	
 	
 	

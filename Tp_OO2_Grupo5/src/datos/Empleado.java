@@ -75,9 +75,9 @@ public class Empleado extends Persona {
 	}
 	
 	@Override
-	public String toString() {
-		return super.toString() + "Empleado [puesto=" + puesto + "]";
-	}
+    public String toString() {
+        return "Empleado | " + super.toString() + " - Puesto: " + puesto + "\nContacto: " + super.getContacto();
+    }
 
 	
 }
