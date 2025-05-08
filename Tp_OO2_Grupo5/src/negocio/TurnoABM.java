@@ -61,8 +61,6 @@ public class TurnoABM {
 		return dao.traerXCliente(idCliente);
 	}
 	
-	//comentario
-	
 	public List<Turno> traerPorEmpleado(long idEmpleado) {
 		return dao.traerXEmpleado(idEmpleado);
 	}
