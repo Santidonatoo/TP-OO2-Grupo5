@@ -75,4 +75,19 @@ public class Turno {
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
+	
+	
+	@Override
+	public String toString() {
+		if (empleado != null) {
+			return "Turno | idTurno: " + idTurno + " - fecha: " + fecha + " - hora: " + hora + " - estado: " + estado
+					+ " - ubicacion: " + ubicacion + "\n\tServicio: " + servicio.getNombre() + "\n\tEmpleado: " + empleado.getNombre() 
+					+ " " +  empleado.getApellido() + "\n\tCliente: " + cliente.getNombre() + " " + cliente.getApellido() + "\n";
+		} else {
+			return "Turno | idTurno: " + idTurno + " - fecha: " + fecha + " - hora: " + hora + " - estado: " + estado
+					+ " - ubicacion: " + ubicacion + "\n\tServicio: " + servicio.getNombre() + "\n\tCliente: " + cliente.getNombre() + " " + cliente.getApellido() + "\n";
+		}
+		
+	}
+	
 }
