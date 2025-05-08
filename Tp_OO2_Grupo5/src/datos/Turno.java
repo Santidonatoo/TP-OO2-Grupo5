@@ -76,10 +76,12 @@ public class Turno {
 		this.servicio = servicio;
 	}
 	
-	@Override
+	
+	
 	public String toString() {
 		return "Turno | idTurno: " + idTurno + " - fecha: " + fecha + " - hora: " + hora + " - estado: " + estado
-				+ " - ubicacion: " + ubicacion;
-		//+ "\n" + servicio + "\n" + empleado + "\n" + cliente esto es lo que hay que agregar pero tira error :)
+				+ " - ubicacion: " + ubicacion
+		+ "\n\tServicio: " + servicio.getNombre() + "\n\tEmpleado: " + empleado.getNombre() + " " +  empleado.getApellido() + "\n\tCliente: " + cliente.getNombre() + " " + cliente.getApellido() + "\n";
 	}
+	
 }
